@@ -65,4 +65,6 @@ if __name__ == "__main__":
 	if len(argv) < 2:
 		print("Usage: %s PROBLEM [ARGS]")
 	else:
-		print(locals()['e_' + argv[1]](*argv[2:]))
+		func = locals()['e_' + argv[1]]
+		print(func.__doc__)
+		print(func(*map(eval, argv[2:])))
